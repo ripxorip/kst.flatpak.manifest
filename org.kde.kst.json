@@ -5,7 +5,7 @@
     "base": "io.qt.qtwebengine.BaseApp",
     "base-version": "5.15-21.08",
     "sdk": "org.kde.Sdk",
-    "command": "kst",
+    "command": "kst2",
     "finish-args": [
         "--share=network",
         "--share=ipc",
@@ -99,6 +99,7 @@
                 "-Dkst_svnversion=0",
                 "-Dkst_version_string=2.0.8",
                 "-Dkst_qt5=ON",
+                "-Dkst_install_prefix=/app",
                 "-Dkst_merge_files=ON",
                 "-DCMAKE_CXX_FLAGS=\"-DH5_USE_110_API\""
             ],
