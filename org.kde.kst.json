@@ -1,0 +1,113 @@
+{
+    "app-id": "org.kde.kst",
+    "runtime": "org.kde.Platform",
+    "runtime-version": "5.15-21.08",
+    "base": "io.qt.qtwebengine.BaseApp",
+    "base-version": "5.15-21.08",
+    "sdk": "org.kde.Sdk",
+    "command": "kst",
+    "finish-args": [
+        "--share=network",
+        "--share=ipc",
+        "--socket=x11",
+        "--socket=wayland",
+        "--filesystem=host",
+        "--filesystem=/tmp"
+    ],
+    "cleanup": [
+        "/include",
+        "/lib/cmake",
+        "/lib/pkgconfig",
+        "/lib/*.la",
+        "/lib/*.a",
+        "/mkspecs",
+        "/share/aclocal",
+        "/share/info",
+        "/share/man"
+    ],
+    "modules": [
+        {
+            "name": "gsl",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://ftp.gnu.org/gnu/gsl/gsl-2.7.1.tar.gz",
+                    "sha256": "dcb0fbd43048832b757ff9942691a8dd70026d5da0ff85601e52687f6deeb34b",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 1267,
+                        "stable-only": true,
+                        "url-template": "http://ftp.gnu.org/gnu/gsl/gsl-$version.tar.gz"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "hdf5",
+            "cleanup": [
+                "/share/hdf5_examples"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.8/src/hdf5-1.10.8.tar.gz",
+                    "sha256": "d341b80d380dd763753a0ebe22915e11e87aac4e44a084a850646ff934d19c80"
+                }
+            ]
+        },
+        {
+            "name": "netcdf",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/Unidata/netcdf-c/archive/v4.8.1.tar.gz",
+                    "sha256": "bc018cc30d5da402622bf76462480664c6668b55eb16ba205a0dfb8647161dd0",
+                    "x-checker-data": {
+                        "type": "anitya",
+                        "project-id": 10354,
+                        "stable-only": true,
+                        "url-template": "https://github.com/Unidata/netcdf-c/archive/v$version.tar.gz"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "cfitsio",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.1.0.tar.gz",
+                    "sha256": "b367c695d2831958e7166921c3b356d5dfa51b1ecee505b97416ba39d1b6c17a"
+                }
+            ]
+        },
+        {
+            "name": "matio",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://github.com/tbeu/matio/archive/v1.5.21.tar.gz",
+                    "sha256": "2b09738fc765609794cdd4745649dcb2d7a528e9ef427c3b8e2a0d71d37d02f7"
+                }
+            ]
+        },
+        {
+            "name": "kst",
+            "buildsystem": "cmake",
+            "config-opts": [
+                "-Dkst_release=2",
+                "-Dkst_svnversion=0",
+                "-Dkst_version_string=2.0.8",
+                "-Dkst_qt5=ON",
+                "-Dkst_merge_files=ON",
+                "-DCMAKE_CXX_FLAGS=\"-DH5_USE_110_API\""
+            ],
+            "sources": [
+                {
+                    "type": "git",
+                    "url": "https://invent.kde.org/graphics/kst-plot.git"
+                }
+            ]
+        }
+    ]
+}
