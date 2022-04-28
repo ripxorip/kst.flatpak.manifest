@@ -43,36 +43,6 @@
             ]
         },
         {
-            "name": "hdf5",
-            "config-opts": [
-                "--enable-cxx",
-                "--with-pic"
-            ],
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.12/hdf5-1.12.1/src/hdf5-1.12.1.tar.gz",
-                    "sha256": "79c66ff67e666665369396e9c90b32e238e501f345afd2234186bfb8331081ca"
-                }
-            ]
-        },
-        {
-            "name": "netcdf",
-            "sources": [
-                {
-                    "type": "archive",
-                    "url": "https://github.com/Unidata/netcdf-c/archive/v4.8.1.tar.gz",
-                    "sha256": "bc018cc30d5da402622bf76462480664c6668b55eb16ba205a0dfb8647161dd0",
-                    "x-checker-data": {
-                        "type": "anitya",
-                        "project-id": 10354,
-                        "stable-only": true,
-                        "url-template": "https://github.com/Unidata/netcdf-c/archive/v$version.tar.gz"
-                    }
-                }
-            ]
-        },
-        {
             "name": "cfitsio",
             "sources": [
                 {
