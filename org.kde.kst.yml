@@ -93,6 +93,7 @@ modules:
     sources:
       - type: git
         url: 'https://invent.kde.org/graphics/kst-plot.git'
+        commit: 5d734f489c8f711903590ee2c9db6981c088ac3d
       - type: patch
         path: hdf5_include.patch
 
